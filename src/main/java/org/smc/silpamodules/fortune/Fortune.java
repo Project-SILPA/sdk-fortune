@@ -16,7 +16,7 @@ import java.util.Random;
 public class Fortune {
 
     public static final int PROVERB_SET_CHANAKYA = 0;
-    public static final int PROBERB_SET_MALAYALAM = 1;
+    public static final int PROVERB_SET_MALAYALAM = 1;
     public static final int PROVERB_SET_THIRUKKURAL = 2;
 
     public static final String FORTUNE_MODULE_NAME = "Indic Fortune";
@@ -35,31 +35,58 @@ public class Fortune {
      */
     private Context mContext;
 
-    private int mProberbSet;
+    private int mProverbSet;
 
 
     private List<String> mQuotes;
 
 
+    /**
+     * Constructor
+     * Default proverb set - PROVERB_SET_CHANAKYA
+     *
+     * @param context context of application
+     */
     public Fortune(Context context) {
         this(context, Fortune.DEFAULT_PROVERB_SET);
     }
 
+    /**
+     * Constructor
+     *
+     * @param context    context of application
+     * @param proverbSet proverb set namely :
+     *                   Fortune.PROVERB_SET_CHANAKYA
+     *                   Fortune.PROVERB_SET_MALAYALAM
+     *                   Fortune.PROVERB_SET_THIRUKKURAL
+     */
     public Fortune(Context context, int proverbSet) {
         this.mContext = context;
-        this.mProberbSet = proverbSet;
+        this.mProverbSet = proverbSet;
 
         init();
     }
 
+    /**
+     * called on object creation
+     */
     private void init() {
         loadQuotes();
     }
 
+    /**
+     * Load proverbs from asset files
+     */
     private void loadQuotes() {
-        this.mQuotes = getQuotesFromFile(Fortune.PROVERB_FILES[this.mProberbSet]);
+        this.mQuotes = getQuotesFromFile(Fortune.PROVERB_FILES[this.mProverbSet]);
     }
 
+    /**
+     * Private function to get all proverbs from asset file
+     *
+     * @param fileName name of the file to be read from
+     * @return list with all quotes from the file
+     */
     private List<String> getQuotesFromFile(String fileName) {
 
         String line;
@@ -98,15 +125,34 @@ public class Fortune {
         return quotes;
     }
 
+    /**
+     * This function is used to explicitly set proverb set
+     *
+     * @param proverbSet proverb set
+     *                   Fortune.PROVERB_SET_CHANAKYA
+     *                   Fortune.PROVERB_SET_MALAYALAM
+     *                   Fortune.PROVERB_SET_THIRUKKURAL
+     */
     public void setProverbSet(int proverbSet) {
-        this.mProberbSet = proverbSet;
+        this.mProverbSet = proverbSet;
         init();
     }
 
+    /**
+     * This function is used to get random fortune string
+     *
+     * @return
+     */
     public String fortune() {
         return fortune("");
     }
 
+    /**
+     * This function is used to get random fortune string containing a search argument.
+     *
+     * @param pattern string to be searched
+     * @return random quote containing a given string pattern
+     */
     public String fortune(String pattern) {
 
         List<String> searchList = new ArrayList<String>();
@@ -122,10 +168,20 @@ public class Fortune {
         return searchList.get(new Random().nextInt(searchList.size()));
     }
 
+    /**
+     * This function gives name of the module
+     *
+     * @return name of module
+     */
     public String getModuleName() {
         return Fortune.FORTUNE_MODULE_NAME;
     }
 
+    /**
+     * This function gives a brief description of the module
+     *
+     * @return brief information regarding the module
+     */
     public String getModuleInformation() {
         return Fortune.FORTUNE_MODULE_INFORMATION;
     }
