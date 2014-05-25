@@ -3,7 +3,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.test.suitebuilder.annotation.SmallTest;
 
-import org.smc.silpamodules.fortune.Fortune;
+import org.silpa.fortune.Fortune;
 
 /**
  * Created by sujith on 25/5/14.
@@ -55,7 +55,7 @@ public class TestFortune extends AndroidTestCase {
     public void testGetModuleName() {
         Fortune obj = new Fortune(getContext());
         assertNotNull(obj);
-        assertEquals(Fortune.FORTUNE_MODULE_NAME, obj.getModuleName());
+        assertEquals(Fortune.MODULE_NAME, obj.getModuleName());
     }
 
     @SmallTest
@@ -64,7 +64,7 @@ public class TestFortune extends AndroidTestCase {
     public void testGetModuleInformation() {
         Fortune obj = new Fortune(getContext());
         assertNotNull(obj);
-        assertEquals(Fortune.FORTUNE_MODULE_INFORMATION, obj.getModuleInformation());
+        assertEquals(Fortune.MODULE_INFORMATION, obj.getModuleInformation());
     }
 
     @Override

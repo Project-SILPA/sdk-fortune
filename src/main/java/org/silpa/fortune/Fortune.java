@@ -1,4 +1,4 @@
-package org.smc.silpamodules.fortune;
+package org.silpa.fortune;
 
 import android.content.Context;
 import android.util.Log;
@@ -15,54 +15,59 @@ import java.util.Random;
  */
 public class Fortune {
 
-    public static final int PROVERB_SET_CHANAKYA = 0;
-    public static final int PROVERB_SET_MALAYALAM = 1;
-    public static final int PROVERB_SET_THIRUKKURAL = 2;
+    public static final int QUOTES_SET_CHANAKYA = 0;
+    public static final int QUOTES_SET_MALAYALAM_PROVERBS = 1;
+    public static final int QUOTES_SET_THIRUKKURAL = 2;
 
-    public static final String FORTUNE_MODULE_NAME = "Indic Fortune";
-    public static final String FORTUNE_MODULE_INFORMATION = "Fortune cookie database " +
+    public static final String MODULE_NAME = "Indic Fortune";
+    public static final String MODULE_INFORMATION = "Fortune cookie database " +
             "and generator for Indic languages.";
 
-    private static final String[] PROVERB_FILES = {"database/chanakya.dic",
+    private static final String[] QUOTES_FILES = {"database/chanakya.dic",
             "database/malayalam_proverbs.dic", "database/thirukkural.dic"};
 
-    private static final int DEFAULT_PROVERB_SET = Fortune.PROVERB_SET_CHANAKYA;
+    private static final int DEFAULT_QUOTES_SET = Fortune.QUOTES_SET_CHANAKYA;
 
-    private static String LOG_TAG = Fortune.FORTUNE_MODULE_NAME;
+    private static String LOG_TAG = Fortune.MODULE_NAME;
 
     /**
      * Context of application
      */
     private Context mContext;
 
-    private int mProverbSet;
+    /**
+     * Selected Quote set
+     */
+    private int mQuoteSet;
 
-
+    /**
+     * List of quotes from selected set
+     */
     private List<String> mQuotes;
 
 
     /**
      * Constructor
-     * Default proverb set - PROVERB_SET_CHANAKYA
+     * Default quote set - QUOTES_SET_CHANAKYA
      *
      * @param context context of application
      */
     public Fortune(Context context) {
-        this(context, Fortune.DEFAULT_PROVERB_SET);
+        this(context, Fortune.DEFAULT_QUOTES_SET);
     }
 
     /**
      * Constructor
      *
-     * @param context    context of application
-     * @param proverbSet proverb set namely :
-     *                   Fortune.PROVERB_SET_CHANAKYA
-     *                   Fortune.PROVERB_SET_MALAYALAM
-     *                   Fortune.PROVERB_SET_THIRUKKURAL
+     * @param context  context of application
+     * @param quoteSet quote set namely :
+     *                 Fortune.QUOTES_SET_CHANAKYA
+     *                 Fortune.QUOTES_SET_MALAYALAM_PROVERBS
+     *                 Fortune.QUOTES_SET_THIRUKKURAL
      */
-    public Fortune(Context context, int proverbSet) {
+    public Fortune(Context context, int quoteSet) {
         this.mContext = context;
-        this.mProverbSet = proverbSet;
+        this.mQuoteSet = quoteSet;
 
         init();
     }
@@ -75,14 +80,14 @@ public class Fortune {
     }
 
     /**
-     * Load proverbs from asset files
+     * Load quotes from asset files
      */
     private void loadQuotes() {
-        this.mQuotes = getQuotesFromFile(Fortune.PROVERB_FILES[this.mProverbSet]);
+        this.mQuotes = getQuotesFromFile(Fortune.QUOTES_FILES[this.mQuoteSet]);
     }
 
     /**
-     * Private function to get all proverbs from asset file
+     * Private function to get all quotes from asset file
      *
      * @param fileName name of the file to be read from
      * @return list with all quotes from the file
@@ -126,15 +131,15 @@ public class Fortune {
     }
 
     /**
-     * This function is used to explicitly set proverb set
+     * This function is used to explicitly set quote set
      *
-     * @param proverbSet proverb set
-     *                   Fortune.PROVERB_SET_CHANAKYA
-     *                   Fortune.PROVERB_SET_MALAYALAM
-     *                   Fortune.PROVERB_SET_THIRUKKURAL
+     * @param quoteSet quote set
+     *                 Fortune.QUOTES_SET_CHANAKYA
+     *                 Fortune.QUOTES_SET_MALAYALAM_PROVERBS
+     *                 Fortune.QUOTES_SET_THIRUKKURAL
      */
-    public void setProverbSet(int proverbSet) {
-        this.mProverbSet = proverbSet;
+    public void setQuoteSet(int quoteSet) {
+        this.mQuoteSet = quoteSet;
         init();
     }
 
@@ -174,7 +179,7 @@ public class Fortune {
      * @return name of module
      */
     public String getModuleName() {
-        return Fortune.FORTUNE_MODULE_NAME;
+        return Fortune.MODULE_NAME;
     }
 
     /**
@@ -183,6 +188,6 @@ public class Fortune {
      * @return brief information regarding the module
      */
     public String getModuleInformation() {
-        return Fortune.FORTUNE_MODULE_INFORMATION;
+        return Fortune.MODULE_INFORMATION;
     }
 }
