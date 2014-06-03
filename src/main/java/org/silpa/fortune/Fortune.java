@@ -28,7 +28,7 @@ public class Fortune {
 
     private static final int DEFAULT_QUOTES_SET = Fortune.QUOTES_SET_CHANAKYA;
 
-    private static String LOG_TAG = Fortune.MODULE_NAME;
+    private static final String LOG_TAG = Fortune.MODULE_NAME;
 
     /**
      * Context of application
