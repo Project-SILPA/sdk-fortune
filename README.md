@@ -1,7 +1,7 @@
 Fortune
 =======
 
-Travis master: [![Build Status](https://travis-ci.org/SujithVadakkepat/sdk-fortune.svg?branch=master)](https://travis-ci.org/SujithVadakkepat/sdk-fortune)
+Travis master: [![Build Status](https://travis-ci.org/Project-SILPA/sdk-fortune.svg)](https://travis-ci.org/Project-SILPA/sdk-fortune)
 
 SILPA - Fortune cookie database and generator for Indic languages.
 
