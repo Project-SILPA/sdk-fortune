@@ -23,8 +23,8 @@ public class Fortune {
     public static final String MODULE_INFORMATION = "Fortune cookie database " +
             "and generator for Indic languages.";
 
-    private static final String[] QUOTES_FILES = {"database/chanakya.dic",
-            "database/malayalam_proverbs.dic", "database/thirukkural.dic"};
+    private static final int[] QUOTES_RESOURCE_RAW_ID = {R.raw.silpa_sdk_chanakya,
+            R.raw.silpa_sdk_malayalam_proverbs, R.raw.silpa_sdk_thirukkural};
 
     private static final int DEFAULT_QUOTES_SET = Fortune.QUOTES_SET_CHANAKYA;
 
@@ -83,16 +83,16 @@ public class Fortune {
      * Load quotes from asset files
      */
     private void loadQuotes() {
-        this.mQuotes = getQuotesFromFile(Fortune.QUOTES_FILES[this.mQuoteSet]);
+        this.mQuotes = getQuotesFromFile(Fortune.QUOTES_RESOURCE_RAW_ID[this.mQuoteSet]);
     }
 
     /**
      * Private function to get all quotes from asset file
      *
-     * @param fileName name of the file to be read from
+     * @param resourceId resource id of raw file in res/raw to be read from
      * @return list with all quotes from the file
      */
-    private List<String> getQuotesFromFile(String fileName) {
+    private List<String> getQuotesFromFile(int resourceId) {
 
         String line;
         String quote;
@@ -102,7 +102,7 @@ public class Fortune {
 
         try {
             br = new BufferedReader(new InputStreamReader(this.mContext.getResources().
-                    getAssets().open(fileName)));
+                    openRawResource(resourceId)));
             quote = "";
             while (true) {
                 try {
