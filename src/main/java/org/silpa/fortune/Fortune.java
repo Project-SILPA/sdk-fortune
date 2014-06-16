@@ -26,7 +26,7 @@ public class Fortune {
     private static final int[] QUOTES_RESOURCE_RAW_ID = {R.raw.silpa_sdk_chanakya,
             R.raw.silpa_sdk_malayalam_proverbs, R.raw.silpa_sdk_thirukkural};
 
-    private static final int DEFAULT_QUOTES_SET = Fortune.QUOTES_SET_CHANAKYA;
+    protected static final int DEFAULT_QUOTES_SET = Fortune.QUOTES_SET_CHANAKYA;
 
     private static final String LOG_TAG = Fortune.MODULE_NAME;
 
