@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Attributes for FortuneTextView -->
+    <declare-styleable name="FortuneTextView">
+        <attr name="fortuneQuoteSet" format="enum">
+            <enum name="chanakya" value="0" />
+            <enum name="malayalam_proverbs" value="1" />
+            <enum name="thirukkural" value="2" />
+        </attr>
+        <attr name="fortuneTimeInterval" format="integer" />
+        <attr name="fortuneSearchPattern" format="string" />
+    </declare-styleable>
+
+
+</resources>
