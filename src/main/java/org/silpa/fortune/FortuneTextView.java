@@ -6,12 +6,13 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.TextView;
+
+import org.silpa.render.IndicTextView;
 
 /**
  * Created by sujith on 16/6/14.
  */
-public class FortuneTextView extends TextView implements FortuneInterface {
+public class FortuneTextView extends IndicTextView implements FortuneInterface {
 
     /**
      * Fortune object
@@ -264,6 +265,5 @@ public class FortuneTextView extends TextView implements FortuneInterface {
             mHandler.removeCallbacks(mStatusChecker);
         }
     }
-
 }
 
