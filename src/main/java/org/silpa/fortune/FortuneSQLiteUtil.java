@@ -104,7 +104,7 @@ public class FortuneSQLiteUtil {
 
     protected String getQuote(int quoteSet, String pattern) {
 
-        SQLiteDatabase fortuneDatabase = SQLiteDatabase.openDatabase(this.dbPath, null, SQLiteDatabase.OPEN_READONLY);
+        SQLiteDatabase fortuneDatabase = SQLiteDatabase.openDatabase(this.dbPath, null, SQLiteDatabase.NO_LOCALIZED_COLLATORS | SQLiteDatabase.OPEN_READONLY);
         if (fortuneDatabase == null) {
             return "";
         }
