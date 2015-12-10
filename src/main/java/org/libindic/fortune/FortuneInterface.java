@@ -1,4 +1,4 @@
-package org.silpa.fortune;
+package org.libindic.fortune;
 
 /**
  * Created by sujith on 16/6/14.

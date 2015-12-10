@@ -1,4 +1,4 @@
-package org.silpa.fortune;
+package org.libindic.fortune;
 
 import android.content.Context;
 

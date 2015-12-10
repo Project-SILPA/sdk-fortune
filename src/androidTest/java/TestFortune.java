@@ -3,7 +3,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.test.suitebuilder.annotation.SmallTest;
 
-import org.silpa.fortune.Fortune;
+import org.libindic.fortune.Fortune;
 
 /**
  * Created by sujith on 25/5/14.

@@ -1,4 +1,4 @@
-package org.silpa.fortune;
+package org.libindic.fortune;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,7 +7,7 @@ import android.os.Looper;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import org.silpa.render.IndicTextView;
+import org.libindic.render.IndicTextView;
 
 /**
  * Created by sujith on 16/6/14.

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.silpa.fortune">
+    package="org.libindic.fortune">
 
     <application
         android:allowBackup="true"
